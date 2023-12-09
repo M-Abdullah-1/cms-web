@@ -1,0 +1,21 @@
+.main {
+  // border: 1px dashed black;
+  // margin: 100px auto;
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .msgBlock {
+    display: flex;
+    justify-content: end;
+    p {
+      span {
+        text-decoration: underline;
+        color: #00000080;
+        cursor: pointer;
+      }
+    }
+  }
+}
