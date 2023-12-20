@@ -11,7 +11,6 @@ const Home = () => {
   useEffect(() => {
     (async () => {
       const response = await axios.get("http://localhost:8080/api/v1/article");
-      console.log(response.data.data.articles);
       if (response.data.status === "success") {
         setArticlesData(response.data.data.articles);
       }

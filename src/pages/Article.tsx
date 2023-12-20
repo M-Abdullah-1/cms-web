@@ -14,7 +14,6 @@ const Article = () => {
           `http://localhost:8080/api/v1/article/${id}`
         );
         const { article } = response.data.data;
-        console.log(article);
         setArticle(article);
       } catch (error) {
         console.error(error);
