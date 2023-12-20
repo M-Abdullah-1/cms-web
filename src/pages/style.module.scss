@@ -7,3 +7,27 @@
     gap: 20px;
   }
 }
+
+// home page style
+.homeContainer {
+  border: 1px dashed black;
+  .bannerBox {
+    border: 1px dashed brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+  }
+  .articlesBox {
+    border: 2px dashed green;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .articleBox {
+      border: 2px dashed orange;
+      padding: 20px;
+      cursor: pointer;
+      margin: 30px 0;
+    }
+  }
+}
