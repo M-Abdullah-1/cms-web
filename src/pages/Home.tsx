@@ -2,17 +2,7 @@ import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-interface Article {
-  __v: number;
-  _id: string;
-  category: string;
-  comment: any[];
-  createdAt: string;
-  description: string;
-  heading: string;
-  updatedAt: string;
-}
+import { Article } from "../interfaces/article";
 
 const Home = () => {
   const [articlesData, setArticlesData] = useState<Article[]>([]);
