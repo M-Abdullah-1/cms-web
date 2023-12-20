@@ -12,13 +12,14 @@ const Home = () => {
     (async () => {
       const response = await axios.get("http://localhost:8080/api/v1/article");
       if (response.data.status === "success") {
-        setArticlesData(response.data.data.articles);
+        const articles = response.data.data.articles;
+        setArticlesData(articles);
       }
     })();
   }, []);
 
-  const articleNavigator = (articleId) => {
-    navigate(`/article/${articleId}`);
+  const articleNavigator = (articleId, authorId) => {
+    navigate(`/article/${articleId}/author/${authorId}`);
   };
 
   return (
@@ -32,7 +33,7 @@ const Home = () => {
             className={style.articleBox}
             key={el._id}
             onClick={() => {
-              articleNavigator(el._id);
+              articleNavigator(el._id, el.author);
             }}
           >
             <h3>{el?.heading}</h3>

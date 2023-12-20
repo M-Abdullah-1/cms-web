@@ -6,5 +6,6 @@ export interface Article {
   createdAt: string;
   description: string;
   heading: string;
+  author: string;
   updatedAt: string;
 }
