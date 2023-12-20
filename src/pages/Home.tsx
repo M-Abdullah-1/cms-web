@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./style.module.scss";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface Article {
   __v: number;
@@ -15,6 +16,7 @@ interface Article {
 
 const Home = () => {
   const [articlesData, setArticlesData] = useState<Article[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -26,6 +28,10 @@ const Home = () => {
     })();
   }, []);
 
+  const articleNavigator = (articleId) => {
+    navigate(`/article/${articleId}`);
+  };
+
   return (
     <div className={style.homeContainer}>
       <div className={style.bannerBox}>
@@ -33,7 +39,13 @@ const Home = () => {
       </div>
       <div className={style.articlesBox}>
         {articlesData.map((el) => (
-          <div className={style.articleBox} key={el._id}>
+          <div
+            className={style.articleBox}
+            key={el._id}
+            onClick={() => {
+              articleNavigator(el._id);
+            }}
+          >
             <h3>{el?.heading}</h3>
             <hr />
             <p>{el.description}</p>
