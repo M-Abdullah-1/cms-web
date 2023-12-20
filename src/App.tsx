@@ -4,6 +4,7 @@ import Signup from "./pages/Signup.js";
 import Home from "./pages/Home.js";
 import { checkAuthToken } from "./utils/auth.ts";
 import Article from "./pages/Article.tsx";
+import Author from "./pages/author.tsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Login /> },
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
     path: "/article/:articleId/author/:authorId",
     loader: checkAuthToken,
     element: <Article />,
+  },
+  {
+    path: "/author/:authorId",
+    loader: checkAuthToken,
+    element: <Author />,
   },
 ]);
 

@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Article } from "../interfaces/article";
 import { User } from "../interfaces/user";
 
 const Article = () => {
   const params = useParams();
+  const navigate = useNavigate();
   const { articleId, authorId } = params;
   const [article, setArticle] = useState<Article | null>(null);
   const [user, setUser] = useState<User | null>(null);
@@ -30,7 +31,13 @@ const Article = () => {
 
   return (
     <div>
-      <p>Author : {user.name}</p>
+      <p
+        onClick={() => {
+          navigate(`/author/${user._id}`);
+        }}
+      >
+        Author : {user.name}
+      </p>
       <h1>{article.heading}</h1>
       <p>{article.description}</p>
     </div>
